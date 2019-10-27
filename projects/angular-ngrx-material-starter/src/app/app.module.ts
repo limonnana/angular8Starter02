@@ -7,12 +7,20 @@ import { CoreModule } from './core/core.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
+import { SignupModule } from './login/signup/signup.module';
+import { LoginModule } from './login/login/login.module';
+
+declare var require: any;
 
 @NgModule({
   imports: [
     // angular
     BrowserAnimationsModule,
     BrowserModule,
+
+    //new entities
+    SignupModule,
+    LoginModule,
 
     // core & shared
     CoreModule,

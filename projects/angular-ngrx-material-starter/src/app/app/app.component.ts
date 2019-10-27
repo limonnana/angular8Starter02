@@ -4,6 +4,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { environment as env } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 import {
   authLogin,
@@ -33,12 +34,8 @@ export class AppComponent implements OnInit {
   version = env.versions.app;
   year = new Date().getFullYear();
   logo = require('../../assets/logo.png');
-  languages = ['en', 'de', 'sk', 'fr', 'es', 'pt-br', 'zh-cn', 'he'];
-  navigation = [
-    { link: 'about', label: 'anms.menu.about' },
-    { link: 'feature-list', label: 'anms.menu.features' },
-    { link: 'examples', label: 'anms.menu.examples' }
-  ];
+  languages = ['en', 'es', 'he'];
+  navigation = [{ link: 'about', label: 'anms.menu.about' }];
   navigationSideMenu = [
     ...this.navigation,
     { link: 'settings', label: 'anms.menu.settings' }
@@ -51,7 +48,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private store: Store<AppState>,
-    private storageService: LocalStorageService
+    private storageService: LocalStorageService,
+    private router: Router
   ) {}
 
   private static isIEorEdgeOrSafari() {
@@ -75,7 +73,8 @@ export class AppComponent implements OnInit {
   }
 
   onLoginClick() {
-    this.store.dispatch(authLogin());
+    // this.store.dispatch(authLogin());
+    this.router.navigate(['login']);
   }
 
   onLogoutClick() {

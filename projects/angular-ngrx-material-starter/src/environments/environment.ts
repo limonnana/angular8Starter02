@@ -6,11 +6,13 @@
 const packageJson = require('../../../../package.json');
 
 export const environment = {
-  appName: 'Angular Ngrx Material Starter',
+  appName: 'Limonnana',
   envName: 'DEV',
   production: false,
   test: false,
   i18nPrefix: '',
+  secureUserApi: 'http://localhost:8080/secure/user',
+  domain: 'http://localhost:8080',
   versions: {
     app: packageJson.version,
     angular: packageJson.dependencies['@angular/core'],

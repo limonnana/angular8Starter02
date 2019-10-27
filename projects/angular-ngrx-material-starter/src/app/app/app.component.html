@@ -10,9 +10,7 @@
           routerLinkActive="active">
           {{item.label | translate}}
         </a>
-        <a mat-list-item href="https://github.com/tomastrajan/angular-ngrx-material-starter" target="_blank">
-          Github
-        </a>
+       
       </mat-nav-list>
     </mat-sidenav>
 
@@ -54,19 +52,10 @@
               <span>{{ 'anms.menu.logout' | translate }}</span>
             </button>
           </mat-menu>
-
+          
           <button mat-icon-button routerLink="settings" class="d-none d-sm-inline">
             <fa-icon icon="cog"></fa-icon>
           </button>
-
-          <a [matTooltip]="'anms.header.github' | translate"
-             matTooltipPosition="before"
-             mat-icon-button
-             class="link d-none d-sm-inline"
-             href="https://github.com/tomastrajan/angular-ngrx-material-starter"
-             target="_blank">
-            <fa-icon [icon]="['fab','github']"></fa-icon>
-          </a>
 
           <span *ngIf="language$ | async as language">
             <mat-select [ngModel]="language" (selectionChange)="onLanguageSelect($event)">
@@ -114,7 +103,7 @@
         </div>
         <div class="row">
           <div class="col-12 signature">
-            &#169; <span class="year">{{year}}</span> - Tomas Trajan
+            &#169; <span class="year">{{year}}</span> - Limonnana
             <br class="d-block d-sm-none">
             <a [matTooltip]="'anms.footer.changelog' | translate"
                matTooltipPosition="before"
