@@ -33,13 +33,13 @@ export class SignupComponent implements OnInit {
   ngOnInit() {}
 
   register() {
-    const userFromForm: Login = this.registerForm.value;
-    this.error = this.validationService.validateRegisterForm(userFromForm);
+    const loginFromForm: Login = this.registerForm.value;
+    this.error = this.validationService.validateRegisterForm(loginFromForm);
     if (this.error != null) {
       console.log('error from form: ' + this.error);
       return;
     } else {
-      this.userService.register(userFromForm).subscribe(data => {
+      this.userService.register(loginFromForm).subscribe(data => {
         this.router.navigate(['login']);
       });
     }
@@ -47,25 +47,23 @@ export class SignupComponent implements OnInit {
 
   private createForm() {
     this.registerForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      retypePassword: ['', Validators.required]
+      email: [''],
+      password: [''],
+      retypePassword: ['']
     });
   }
 
+  
   public isEmailTaken() {
     this.error = '';
-    let result = 'false';
+   
     const userFromForm: Login = this.registerForm.value;
     let email: string = userFromForm.email;
-    this.userService.isEmailTaken(email).subscribe(data => {
+    this.userService.isEmailTaken(userFromForm).subscribe(data => {
       if (data.result === 'true') {
-        this.email = 'true';
         this.error =
           'Email already registered, please login or use forgot password ';
-      } else {
-        this.email = 'false';
-      }
+    } 
     });
   }
 }

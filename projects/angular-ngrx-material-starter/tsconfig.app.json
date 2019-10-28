@@ -5,7 +5,5 @@
     // "types": []
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["src/test.ts", "src/**/*.spec.ts"],
-  "emitDecoratorMetadata": true,
-  "experimentalDecorators": true
+  "exclude": ["src/test.ts", "src/**/*.spec.ts"]
 }

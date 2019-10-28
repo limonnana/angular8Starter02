@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../entities/user';
+import { Login } from '../../entities/login';
 
 @Injectable({
   providedIn: 'root'
@@ -7,25 +7,23 @@ import { User } from '../entities/user';
 export class ValidationService {
   constructor() {}
 
-  validateRegisterForm(user: User): string {
-    let error: string;
+  validateRegisterForm(login: Login): string {
+    let error: string = '';
 
-    if (!user.email) {
+    if (!login.email) {
       error = ' email is required ';
     }
-    if (this.emailValidator(user.email)) {
+    if (this.emailValidator(login.email)) {
       error = (error ? '' : error) + ' email is not valid ';
     }
-    if (this.passwordValidator(user.password)) {
-      error = (error ? '' : error) + ' password is not valid ';
+    if (this.passwordValidator(login.password)) {
+      error = (error ? '' : error) + ' password is not valid , must have between 6 and 17 characters and at least one number';
     }
-    if (this.retypePassword(user.password, user.retypePassword)) {
+    if (this.retypePassword(login.password, login.retypePassword)) {
       error =
         (error ? '' : error) + " password and retype password don't match ";
     }
-    if (user.phone.length < 10 || user.phone.length > 11) {
-      error = (error ? '' : error) + ' phone number is not valid  ';
-    }
+    
     // TODO validate password
     return error;
   }
@@ -44,6 +42,7 @@ export class ValidationService {
 
   emailValidator(email: string) {
     // RFC 2822 compliant regex
+    
     if (
       email.match(
         /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/

@@ -1,18 +1,19 @@
 <div class="form-wraper">
     <div class="form-container card">
       <div class="form-header">
-        <h3 class="form-title">Register</h3>
+        <h3 class="form-title">Register </h3>
       </div>
       <form class="clr-form" (ngSubmit)="register()"[formGroup]="registerForm">
       <div class="form-body">
         <mat-form-field class="justifier">
             <input matInput placeholder="Email" text="email" name="email" formControlName="email" (blur)="isEmailTaken($event)" class="form-input">
         </mat-form-field>
+        <mat-error *ngIf="error">{{ error}}</mat-error>
         <mat-form-field class="justifier">
-            <input matInput placeholder="Password" text="password" name="password" formControlName="password" class="form-input">
+            <input matInput type="password" placeholder="Password" text="password" name="password" formControlName="password" class="form-input">
         </mat-form-field>
         <mat-form-field class="justifier">
-          <input matInput placeholder="Retype password" text="password" name="retypePassword" formControlName="retypePassword" class="form-input">
+          <input matInput type="password" placeholder="Retype password" text="password" name="retypePassword" formControlName="retypePassword" class="form-input">
       </mat-form-field>
       </div>
   

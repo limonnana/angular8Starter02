@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../entities/user';
+import { Login } from '../../entities/login';
 import { environment } from '../../../environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
@@ -31,9 +32,9 @@ export class UserService {
     return this.http.post<User>(`${environment.secureUserApi}/create`, user);
   }
 
-  public register(user: User) {
-    console.log(JSON.stringify(user));
-    return this.http.post<User>(`${environment.domain}/register`, user);
+  public register(login: Login) {
+    console.log(JSON.stringify(login));
+    return this.http.post<User>(`${environment.domain}/register`, login);
   }
 
   public delete(id: string) {
@@ -58,9 +59,9 @@ export class UserService {
       );
   }
 
-  isEmailTaken(email: string): Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(
-      `${environment.domain}/emailTaken/` + email
+  isEmailTaken(login: Login): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>(
+      `${environment.domain}/emailTaken/`, login 
     );
   }
 
