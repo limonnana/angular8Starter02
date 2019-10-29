@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
 import { SignupModule } from './login/signup/signup.module';
 import { LoginModule } from './login/login/login.module';
+import { UserModule } from './features/user/user.module';
 
 declare var require: any;
 
@@ -21,6 +22,7 @@ declare var require: any;
     //new entities
     SignupModule,
     LoginModule,
+    UserModule,
 
     // core & shared
     CoreModule,

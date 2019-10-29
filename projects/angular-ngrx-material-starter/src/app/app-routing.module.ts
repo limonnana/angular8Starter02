@@ -28,6 +28,11 @@ const routes: Routes = [
       import('./login/signup/signup.module').then(m => m.SignupModule)
   },
   {
+    path: 'user',
+    loadChildren: () =>
+      import('./features/user/user.module').then(m => m.UserModule)
+  },
+  {
     path: '**',
     redirectTo: 'about'
   }

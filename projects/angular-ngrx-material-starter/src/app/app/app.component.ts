@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
   year = new Date().getFullYear();
   logo = require('../../assets/logo.png');
   languages = ['en', 'es', 'he'];
-  navigation = [{ link: 'about', label: 'anms.menu.about' }];
+  navigation = [{link: 'user', label: 'anms.menu.users'},{ link: 'about', label: 'anms.menu.about' }];
   navigationSideMenu = [
     ...this.navigation,
     { link: 'settings', label: 'anms.menu.settings' }
@@ -73,12 +73,12 @@ export class AppComponent implements OnInit {
   }
 
   onLoginClick() {
-    // this.store.dispatch(authLogin());
     this.router.navigate(['login']);
   }
 
   onLogoutClick() {
     this.store.dispatch(authLogout());
+    this.router.navigate(['login']);
   }
 
   onLanguageSelect({ value: language }) {

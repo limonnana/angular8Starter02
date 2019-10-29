@@ -3,18 +3,18 @@
       <div class="form-header">
         <img src="./../../assets/key.png"  class="main-lock-icon" alt="">
       </div>
-  
+      <form class="clr-form" (ngSubmit)="login()"[formGroup]="loginForm">
       <div class="form-body">
         <mat-form-field class="justifier">
-            <input matInput placeholder="Email" text="email" class="form-input">
+            <input matInput placeholder="Email" text="email" formControlName="email" class="form-input">
         </mat-form-field>
         <mat-form-field class="justifier">
-            <input matInput type="password" placeholder="Password" text="password" class="form-input">
+            <input matInput type="password" placeholder="Password" text="password"formControlName="password" class="form-input">
         </mat-form-field>
       </div>
   
       <div class="form-footer">
-          <button mat-raised-button class="btn custom-btn"> 
+          <button mat-raised-button class="btn custom-btn" type="submit"> 
               <mat-icon class="mat-icon-rtl-mirror" svgIcon="thumb-up"></mat-icon> Login
           </button>
           <div class="txt">
@@ -24,6 +24,7 @@
             <img src="./../../assets/search.png" alt="" class="google-icon"> Login With Google
           </button>
       </div>
+      </form>
       <div class="additional-link">
         <a routerLink="/signup">No Account? <strong>Create one here</strong></a>
       </div>
@@ -32,5 +33,4 @@
       </div>
     </div>
   </div>
-  
   
